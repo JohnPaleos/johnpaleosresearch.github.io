@@ -2,186 +2,308 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Research project by John Paleos exploring how generative AI is redefining the B2B sales cycle." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Research project by John Paleos on how generative AI is transforming the B2B sales cycle."/>
   <title>How Generative AI Is Transforming the B2B Sales Cycle | John Paleos</title>
   <style>
-    :root {
-      --accent: #4a8df8;
-      --text: #1a1a1a;
-      --bg: #ffffff;
-      --muted: #666666;
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0a1a3a;
+      --bg3:#001d3d;
+      --ink:#e9eefc;
+      --muted:#a9b3d1;
+      --accent:#6aa3ff;
+      --accent2:#8be9fd;
+      --card:#101835cc;
+      --glow:#6aa3ff55;
     }
-    * {
-      box-sizing: border-box;
-    }
-    body {
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
       font-family: Georgia, "Times New Roman", serif;
-      background: var(--bg);
-      color: var(--text);
-      margin: 0;
-      line-height: 1.7;
+      color:var(--ink);
+      background: radial-gradient(1200px 800px at 20% 10%, #0f1b3a 0%, transparent 60%),
+                  radial-gradient(900px 700px at 80% 20%, #062a64 0%, transparent 60%),
+                  linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 60%, var(--bg3) 100%);
+      background-attachment: fixed;
+      line-height:1.75;
+      overflow-x:hidden;
     }
-    header {
-      background: linear-gradient(135deg, #f9fbff 0%, #e8f0ff 100%);
-      text-align: center;
-      padding: 5rem 1rem 4rem 1rem;
-      border-bottom: 1px solid #e0e0e0;
+
+    /* Subtle animated stars for a futuristic vibe */
+    .stars, .stars2{
+      position:fixed; inset:0; pointer-events:none; z-index:0;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.25) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 70% 20%, rgba(255,255,255,0.2) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,0.18) 50%, transparent 51%),
+        radial-gradient(1.2px 1.2px at 90% 60%, rgba(255,255,255,0.15) 50%, transparent 51%);
+      animation: twinkle 10s linear infinite;
     }
-    header h1 {
-      font-size: 2.6rem;
-      margin: 0;
-      color: var(--text);
-      letter-spacing: -0.5px;
+    .stars2{ animation-duration: 16s; opacity:.6; }
+
+    @keyframes twinkle{
+      0%{opacity:.8; transform:translateY(0)}
+      50%{opacity:.5; transform:translateY(-10px)}
+      100%{opacity:.8; transform:translateY(0)}
     }
-    header p {
-      font-size: 1.2rem;
-      color: var(--muted);
-      margin-top: 0.8rem;
+
+    header{
+      position:relative;
+      z-index:1;
+      padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 1rem;
+      text-align:center;
     }
-    main {
-      max-width: 850px;
+    .hero{
+      max-width:1000px; margin:0 auto;
+      background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:22px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      box-shadow: 0 0 40px var(--glow), inset 0 0 60px rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+    }
+    h1{
+      margin:0 0 .5rem 0;
+      font-size: clamp(2rem, 4.8vw, 3.4rem);
+      letter-spacing:.2px;
+      text-shadow: 0 0 20px rgba(106,163,255,0.35), 0 0 2px rgba(255,255,255,0.2);
+    }
+    .tagline{
+      margin:.25rem 0 1rem 0;
+      font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+      color:var(--muted);
+    }
+    .byline{
+      margin-top:.2rem;
+      font-size:1rem;
+      color:var(--ink);
+    }
+    .byline a{
+      color:var(--accent2);
+      text-decoration:none;
+      border-bottom:1px solid rgba(139,233,253,0.35);
+      transition: all .2s ease;
+    }
+    .byline a:hover{
+      color:white;
+      border-bottom-color:white;
+      text-shadow:0 0 12px rgba(139,233,253,0.7);
+    }
+
+    main{
+      position:relative;
+      z-index:1;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 3rem 1.5rem;
+      padding: 1rem 1.25rem 4rem;
     }
-    h2 {
-      color: var(--accent);
-      margin-top: 2.5rem;
-      font-size: 1.7rem;
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:18px;
+      padding: clamp(1.25rem, 2.2vw, 1.75rem);
+      margin: 1.1rem 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35), inset 0 0 60px rgba(255,255,255,0.03);
+      transform: translateY(8px);
+      opacity:0;
+      animation: rise .9s ease forwards;
     }
-    h3 {
-      color: var(--text);
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
+    .card:nth-child(1){ animation-delay:.05s }
+    .card:nth-child(2){ animation-delay:.1s }
+    .card:nth-child(3){ animation-delay:.15s }
+    .card:nth-child(4){ animation-delay:.2s }
+    .card:nth-child(5){ animation-delay:.25s }
+    .card:nth-child(6){ animation-delay:.3s }
+    .card:nth-child(7){ animation-delay:.35s }
+    .card:nth-child(8){ animation-delay:.4s }
+
+    @keyframes rise{
+      to{ transform: translateY(0); opacity:1 }
     }
-    img {
-      width: 100%;
-      max-width: 720px;
-      display: block;
-      margin: 1.5rem auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+    h2{
+      font-size: clamp(1.4rem, 2.6vw, 2rem);
+      margin:0 0 .6rem 0;
+      color:var(--accent);
+      text-shadow: 0 0 16px rgba(106,163,255,0.35);
     }
-    p, li {
-      font-size: 1.05rem;
+    h3{
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      margin: .4rem 0 .2rem 0;
+      color:#dbe7ff;
     }
-    ol {
-      margin-top: 1rem;
-      padding-left: 1.2rem;
+
+    p{font-size:1.05rem; margin:.6rem 0; color:#eaf0ff}
+    li{font-size:1.03rem; margin:.35rem 0; color:#eaf0ff}
+    ol{padding-left:1.1rem}
+
+    .lead{
+      font-size:1.15rem;
+      color:#eaf2ff;
     }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top: 1px solid #e0e0e0;
-      font-size: 0.95rem;
-      color: var(--muted);
-      background: #fafafa;
+
+    .divider{
+      height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      margin:1.2rem 0;
     }
-    a {
-      color: var(--accent);
-      text-decoration: none;
+
+    a{ color:var(--accent2); text-decoration:none; }
+    a:hover{ text-decoration:underline; text-decoration-color: rgba(139,233,253,0.7); }
+
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
+      padding: 2rem 1rem 3rem;
     }
-    a:hover {
-      text-decoration: underline;
+
+    /* Floating glow bar under the hero */
+    .glowline{
+      position:relative; height:12px; margin:18px auto 0; max-width:320px;
+      border-radius:12px;
+      background: radial-gradient(40% 120% at 50% 50%, rgba(106,163,255,0.8), rgba(106,163,255,0.1) 60%, transparent 70%);
+      filter: blur(10px);
+      animation: pulse 3s ease-in-out infinite;
     }
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      header p { font-size: 1rem; }
-      main { padding: 2rem 1rem; }
+    @keyframes pulse{
+      0%{opacity:.65} 50%{opacity:1} 100%{opacity:.65}
+    }
+
+    /* Back to top button */
+    .top{
+      position:fixed; right:14px; bottom:14px; z-index:2;
+      background: rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.2);
+      color:var(--ink);
+      padding:.6rem .8rem; border-radius:10px;
+      cursor:pointer;
+      backdrop-filter: blur(6px);
+      transition: all .2s ease;
+    }
+    .top:hover{
+      background: rgba(255,255,255,0.15);
+      box-shadow:0 0 18px rgba(106,163,255,0.35);
     }
   </style>
 </head>
 <body>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
   <header>
-    <h1>How Generative AI Is Transforming the B2B Sales Cycle</h1>
-    <p>Exploring how AI is redefining modern sales — from prospecting to closing.</p>
+    <div class="hero">
+      <h1>How Generative AI Is Transforming the B2B Sales Cycle</h1>
+      <p class="tagline">A deep look at how modern sales teams use AI to move faster, personalize at scale, and build stronger relationships</p>
+      <p class="byline">
+        Written by <strong>John Paleos</strong> · 
+        <a href="https://www.linkedin.com/in/john-paleos" target="_blank" rel="noopener">linkedin dot com slash in slash john dash paleos</a> · 
+        <a href="mailto:John.paleos1@gmail.com">John dot paleos1 at gmail dot com</a>
+      </p>
+      <div class="glowline" aria-hidden="true"></div>
+    </div>
   </header>
 
   <main>
-    <h2>Introduction</h2>
-    <p>
-      The B2B sales world is evolving quickly. Buyers now do most of their research before meeting a salesperson, and most interactions happen online. Generative AI has emerged as a major force driving this change. It can write, analyze, and personalize communication in ways that make selling faster, smarter, and more human. Instead of replacing people, it helps them spend more time on relationships and strategy.
-    </p>
+    <section class="card">
+      <h2>Introduction</h2>
+      <p class="lead">
+        B2B sales is changing fast. Buyers research on their own, and most interactions happen online. Generative AI now helps teams research, write, and personalize in minutes. The goal is simple. Less admin work, more time with customers, better outcomes.
+      </p>
+    </section>
 
-    <h2>What Generative AI Does for Sales</h2>
-    <p>
-      Generative AI uses large language models trained on billions of examples to produce natural text, visuals, and summaries. In sales, it can instantly draft emails, summarize calls, and prepare proposals. Tools like <strong>ChatGPT</strong>, <strong>Salesforce Einstein GPT</strong>, and <strong>HubSpot AI</strong> automate repetitive work and bring personalization to scale. McKinsey estimates these systems could add up to <strong>$1.2 trillion</strong> in annual value across global sales and marketing.
-    </p>
+    <section class="card">
+      <h2>What Generative AI Does for Sales</h2>
+      <p>
+        Generative AI uses large language models that can produce natural writing, summaries, and helpful suggestions. In a sales context, that means instant drafts for emails, call notes, or proposals. Platforms such as ChatGPT, Salesforce Einstein GPT, and HubSpot AI bring writing and analysis into the flow of work. Research from leading firms suggests material gains in productivity and revenue for teams that adopt these tools with care and review.
+      </p>
+    </section>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Artificial_intelligence_growth_chart.png" alt="AI adoption growth chart">
-    <p><em>AI adoption in B2B sales continues to accelerate, with nearly one in five organizations actively using generative AI tools.</em></p>
+    <section class="card">
+      <h2>How AI Changes the Sales Cycle</h2>
+      <div class="divider"></div>
+      <h3>Prospecting</h3>
+      <p>
+        AI scans data to find accounts that match your ideal profile. It also creates first draft outreach that reads like it was written for one person. Teams report higher open rates and more replies when messages are specific and relevant.
+      </p>
+      <h3>Qualifying</h3>
+      <p>
+        Models score leads by learning from past wins and losses. Reps focus on high potential conversations. Assistants can ask first round questions about timing, budget, and needs, then route quality opportunities to a human.
+      </p>
+      <h3>Pitching</h3>
+      <p>
+        AI helps assemble decks and proposals that match the buyer context. In meetings, a copilot can surface facts, case studies, and talking points. After the call, it prepares a clear summary and a follow up note so momentum continues.
+      </p>
+      <h3>Closing</h3>
+      <p>
+        Proposals and agreements change quickly near the finish line. AI updates language, pricing, and terms without delay. It can prepare concise summaries that speak to finance, security, or operations so each stakeholder gets what they need.
+      </p>
+      <h3>Nurturing</h3>
+      <p>
+        After the win, AI watches usage and support signals. It flags risk early and reveals healthy accounts that may be ready for expansion. Automated check ins and success notes keep relationships warm while account managers focus on strategy.
+      </p>
+    </section>
 
-    <h2>How AI Is Changing the Sales Cycle</h2>
-    <h3>1. Prospecting</h3>
-    <p>
-      Finding new leads used to take hours of manual research. AI systems now analyze data to locate ideal prospects automatically. Chatbots can even engage visitors at any time, collect details, and set meetings. Personalized AI-generated emails get 30–40% more responses than standard outreach.
-    </p>
+    <section class="card">
+      <h2>Real World Examples</h2>
+      <p>
+        Salesforce Einstein GPT drafts personalized outreach from CRM context and suggests next steps. HubSpot AI lets reps ask natural language questions to pull lists, create reports, and generate emails. Many reps also use ChatGPT for brainstorming lines, shaping tone, and preparing objection responses. The work is still reviewed by a person before it goes out the door.
+      </p>
+    </section>
 
-    <h3>2. Qualifying Leads</h3>
-    <p>
-      Machine learning models can predict which leads are most likely to convert by comparing them to historical data. This allows teams to focus on high-potential prospects instead of guessing. AI assistants can also handle first conversations, asking key qualifying questions before a rep steps in.
-    </p>
+    <section class="card">
+      <h2>Benefits and Challenges</h2>
+      <p>
+        Benefits include time savings, stronger personalization, and better forecasting. Challenges include accuracy, bias, and the risk of losing the human touch. The best teams treat AI as a partner. They keep people in the loop for judgment and trust. They use clear review steps, and they protect customer data with strong guardrails.
+      </p>
+    </section>
 
-    <h3>3. Pitching</h3>
-    <p>
-      During pitches, AI acts as a creative partner. It helps build decks, write proposals, and even provide real-time insights in meetings. After a call, the same tools can summarize discussions and generate personalized follow-ups, ensuring no opportunity is lost.
-    </p>
+    <section class="card">
+      <h2>The Future of AI and Sales</h2>
+      <p>
+        Sales will be a collaboration between people and AI. Copilots will summarize meetings, draft messages, and manage follow ups. People will lead with empathy, creative problem solving, and clear value. Routine tasks will be automated. Complex conversations will be more thoughtful because reps have better insight at the right time.
+      </p>
+    </section>
 
-    <h3>4. Closing Deals</h3>
-    <p>
-      AI simplifies negotiation and documentation. It can revise proposals, update contracts, and analyze pricing trends to recommend optimal offers. These systems also create targeted summaries for different stakeholders to speed up approvals.
-    </p>
+    <section class="card">
+      <h2>Conclusion</h2>
+      <p>
+        Generative AI is not here to replace sales teams. It is here to raise the floor and raise the ceiling. It handles the heavy lift so people can focus on relationships and results. The winners will blend precision from AI with the human skills that buyers remember.
+      </p>
+    </section>
 
-    <h3>5. Nurturing Customers</h3>
-    <p>
-      After closing, AI supports long-term relationships by tracking customer activity and satisfaction. It predicts churn risk, identifies upsell opportunities, and automates personalized check-ins, allowing teams to maintain consistent engagement.
-    </p>
-
-    <h2>Real-World Examples</h2>
-    <p>
-      <strong>Salesforce Einstein GPT</strong> writes tailored emails and proposals directly from CRM data. <strong>HubSpot’s ChatSpot</strong> lets users chat with their CRM to get instant reports and outreach drafts. Many salespeople also use <strong>ChatGPT</strong> to brainstorm messages, craft scripts, and refine tone, helping their outreach feel natural and personal.
-    </p>
-
-    <h2>Benefits and Challenges</h2>
-    <p>
-      The benefits are clear: AI saves time, increases personalization, and improves forecasting accuracy. Yet challenges remain. AI can make mistakes or reflect bias, and over-automation risks losing the human touch that builds trust. The key is to treat AI as a partner — review its output, and let people bring creativity and empathy to every interaction.
-    </p>
-
-    <h2>The Future of AI and Sales</h2>
-    <p>
-      The future of sales will revolve around collaboration between people and AI. Reps will use AI copilots to summarize calls, track deals, and assist with content. Routine tasks will be handled by AI, while humans focus on complex relationships and negotiation. The result will be a process that’s both efficient and deeply personalized.
-    </p>
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/AI_Human_collaboration_concept.jpg" alt="Human and AI collaboration diagram">
-    <p><em>Humans and AI working together: technology handles scale and data while people bring creativity and trust.</em></p>
-
-    <h2>Conclusion</h2>
-    <p>
-      Generative AI is reshaping B2B sales. It streamlines prospecting, personalizes engagement, and enables smarter decisions. The companies that blend AI’s precision with human understanding will build stronger relationships and grow faster. The goal is not to automate selling — it’s to elevate it.
-    </p>
-
-    <h2>Sources</h2>
-    <ol>
-      <li>McKinsey & Company (2024). <em>An Unconstrained Future: How Generative AI Could Reshape B2B Sales.</em></li>
-      <li>McKinsey & Company (2024). <em>Five Fundamental Truths: How B2B Winners Keep Growing.</em></li>
-      <li>Boston Consulting Group (2025). <em>How AI Agents Will Transform B2B Sales.</em></li>
-      <li>Gartner (2020). <em>80% of B2B Sales Interactions Will Occur in Digital Channels by 2025.</em></li>
-      <li>HubSpot (2024). <em>Generative AI for Sales: How Sales Reps Can Use It in 2025.</em></li>
-      <li>Harvard Business Review (2025). <em>How Successful Sales Teams Are Embracing Agentic AI.</em></li>
-      <li>Salesforce (2024). <em>Einstein GPT: AI for Every CRM Workflow.</em></li>
-      <li>HubSpot (2024). <em>ChatSpot and AI Assistants Overview.</em></li>
-      <li>Persana AI (2025). <em>How AI in B2B Sales Is Transforming Sales Strategies.</em></li>
-      <li>Deloitte Insights (2024). <em>AI-Driven Personalization in the Sales Process.</em></li>
-      <li>Forrester (2024). <em>State of AI in B2B Sales Enablement.</em></li>
-      <li>LinkedIn Sales Solutions (2025). <em>AI in Sales: Data, Trust, and the Human Element.</em></li>
-      <li>PwC (2025). <em>The Emerging Role of Generative AI in Sales Forecasting.</em></li>
-      <li>Accenture (2024). <em>Augmented Selling: The Human + AI Sales Revolution.</em></li>
-      <li>MIT Sloan Management Review (2025). <em>Balancing AI Automation and Human Connection in B2B Sales.</em></li>
-    </ol>
+    <section class="card">
+      <h2>Sources</h2>
+      <ol>
+        <li>McKinsey and Company 2024. An Unconstrained Future on Generative AI and B2B Sales.</li>
+        <li>McKinsey and Company 2024. Five Fundamental Truths on Growth in B2B.</li>
+        <li>Boston Consulting Group 2025. How AI Agents Will Transform B2B Sales.</li>
+        <li>Gartner 2020. Eighty percent of B2B interactions will occur in digital channels by 2025.</li>
+        <li>HubSpot 2024. Generative AI for Sales and practical use in 2025.</li>
+        <li>Harvard Business Review 2025. How successful teams embrace agentic AI.</li>
+        <li>Salesforce 2024. Einstein GPT for CRM workflows.</li>
+        <li>HubSpot 2024. ChatSpot and AI Assistants overview.</li>
+        <li>Persana AI 2025. AI in B2B sales strategies.</li>
+        <li>Deloitte Insights 2024. Personalization in the sales process with AI.</li>
+        <li>Forrester 2024. State of AI in sales enablement.</li>
+        <li>LinkedIn Sales Solutions 2025. AI in sales, data and trust.</li>
+        <li>PwC 2025. Generative AI and sales forecasting.</li>
+        <li>Accenture 2024. Augmented selling, human plus AI.</li>
+        <li>MIT Sloan Management Review 2025. Balancing automation and human connection.</li>
+      </ol>
+    </section>
   </main>
 
-  <footer>
-    <p>Written by <strong>John Paleos</strong> | <a href="https://www.linkedin.com/in/john-paleos">LinkedIn</a> | 412-500-3517</p>
-  </footer>
+  <div class="footer">
+    <p>© <span id="year"></span> John Paleos. All rights reserved.</p>
+  </div>
+
+  <button class="top" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Back to top">Top</button>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

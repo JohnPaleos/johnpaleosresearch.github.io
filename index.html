@@ -2,76 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Research project by John Paleos on how generative AI is transforming the B2B sales cycle."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Research project by John Paleos exploring how generative AI is redefining the B2B sales cycle." />
   <title>How Generative AI Is Transforming the B2B Sales Cycle | John Paleos</title>
+
   <style>
     :root{
-      --bg1:#0b1020;
-      --bg2:#0a1a3a;
+      --bg1:#050818;
+      --bg2:#0d1538;
       --bg3:#001d3d;
-      --ink:#e9eefc;
-      --muted:#a9b3d1;
-      --accent:#6aa3ff;
+      --ink:#ecf1ff;
+      --muted:#a5b1d4;
+      --accent:#66a2ff;
       --accent2:#8be9fd;
-      --card:#101835cc;
-      --glow:#6aa3ff55;
+      --card:#101833cc;
+      --glow:#66a2ff55;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{
       font-family: Georgia, "Times New Roman", serif;
       color:var(--ink);
-      background: radial-gradient(1200px 800px at 20% 10%, #0f1b3a 0%, transparent 60%),
+      background: radial-gradient(1200px 800px at 20% 10%, #101b3f 0%, transparent 60%),
                   radial-gradient(900px 700px at 80% 20%, #062a64 0%, transparent 60%),
-                  linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 60%, var(--bg3) 100%);
-      background-attachment: fixed;
+                  linear-gradient(180deg,var(--bg1)0%,var(--bg2)60%,var(--bg3)100%);
+      background-attachment:fixed;
       line-height:1.75;
       overflow-x:hidden;
     }
-
-    /* Subtle animated stars for a futuristic vibe */
-    .stars, .stars2{
-      position:fixed; inset:0; pointer-events:none; z-index:0;
+    .stars,.stars2{
+      position:fixed;inset:0;pointer-events:none;z-index:0;
       background-image:
-        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.25) 50%, transparent 51%),
-        radial-gradient(1.5px 1.5px at 70% 20%, rgba(255,255,255,0.2) 50%, transparent 51%),
-        radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,0.18) 50%, transparent 51%),
-        radial-gradient(1.2px 1.2px at 90% 60%, rgba(255,255,255,0.15) 50%, transparent 51%);
-      animation: twinkle 10s linear infinite;
+        radial-gradient(2px 2px at 20% 30%,rgba(255,255,255,0.25)50%,transparent51%),
+        radial-gradient(1.5px 1.5px at 70% 20%,rgba(255,255,255,0.2)50%,transparent51%),
+        radial-gradient(1.5px 1.5px at 40% 80%,rgba(255,255,255,0.18)50%,transparent51%),
+        radial-gradient(1.2px 1.2px at 90% 60%,rgba(255,255,255,0.15)50%,transparent51%);
+      animation:twinkle 12s linear infinite;
     }
-    .stars2{ animation-duration: 16s; opacity:.6; }
-
+    .stars2{animation-duration:18s;opacity:.6}
     @keyframes twinkle{
-      0%{opacity:.8; transform:translateY(0)}
-      50%{opacity:.5; transform:translateY(-10px)}
-      100%{opacity:.8; transform:translateY(0)}
+      0%{opacity:.8;transform:translateY(0)}
+      50%{opacity:.5;transform:translateY(-10px)}
+      100%{opacity:.8;transform:translateY(0)}
     }
-
     header{
-      position:relative;
-      z-index:1;
-      padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 1rem;
+      position:relative;z-index:1;
+      padding:clamp(2.5rem,6vw,5rem)1rem 2rem;
       text-align:center;
     }
     .hero{
-      max-width:1000px; margin:0 auto;
-      background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+      max-width:1000px;margin:0 auto;
+      background:linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02));
       border:1px solid rgba(255,255,255,0.12);
       border-radius:22px;
-      padding: clamp(1.5rem, 4vw, 2.5rem);
-      box-shadow: 0 0 40px var(--glow), inset 0 0 60px rgba(255,255,255,0.04);
-      backdrop-filter: blur(10px);
+      padding:clamp(1.5rem,4vw,2.5rem);
+      box-shadow:0 0 40px var(--glow),inset 0 0 60px rgba(255,255,255,0.04);
+      backdrop-filter:blur(10px);
     }
     h1{
       margin:0 0 .5rem 0;
-      font-size: clamp(2rem, 4.8vw, 3.4rem);
-      letter-spacing:.2px;
-      text-shadow: 0 0 20px rgba(106,163,255,0.35), 0 0 2px rgba(255,255,255,0.2);
+      font-size:clamp(2rem,4.8vw,3.4rem);
+      text-shadow:0 0 20px rgba(102,162,255,0.35),0 0 2px rgba(255,255,255,0.2);
     }
     .tagline{
       margin:.25rem 0 1rem 0;
-      font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+      font-size:clamp(1.05rem,2.2vw,1.2rem);
       color:var(--muted);
     }
     .byline{
@@ -83,123 +78,57 @@
       color:var(--accent2);
       text-decoration:none;
       border-bottom:1px solid rgba(139,233,253,0.35);
-      transition: all .2s ease;
+      transition:all .2s ease;
     }
     .byline a:hover{
       color:white;
       border-bottom-color:white;
       text-shadow:0 0 12px rgba(139,233,253,0.7);
     }
-
-    main{
-      position:relative;
-      z-index:1;
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 1rem 1.25rem 4rem;
+    .glowline{
+      position:relative;height:12px;margin:18px auto 0;max-width:320px;
+      border-radius:12px;
+      background:radial-gradient(40% 120% at 50% 50%,rgba(106,163,255,0.8),rgba(106,163,255,0.1)60%,transparent70%);
+      filter:blur(10px);
+      animation:pulse 3s ease-in-out infinite;
     }
-
+    @keyframes pulse{0%{opacity:.65}50%{opacity:1}100%{opacity:.65}}
+    main{
+      position:relative;z-index:1;
+      max-width:980px;margin:0 auto;
+      padding:1rem 1.25rem 4rem;
+    }
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));
       border:1px solid rgba(255,255,255,0.1);
       border-radius:18px;
-      padding: clamp(1.25rem, 2.2vw, 1.75rem);
-      margin: 1.1rem 0;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.35), inset 0 0 60px rgba(255,255,255,0.03);
-      transform: translateY(8px);
-      opacity:0;
-      animation: rise .9s ease forwards;
-    }
-    .card:nth-child(1){ animation-delay:.05s }
-    .card:nth-child(2){ animation-delay:.1s }
-    .card:nth-child(3){ animation-delay:.15s }
-    .card:nth-child(4){ animation-delay:.2s }
-    .card:nth-child(5){ animation-delay:.25s }
-    .card:nth-child(6){ animation-delay:.3s }
-    .card:nth-child(7){ animation-delay:.35s }
-    .card:nth-child(8){ animation-delay:.4s }
-
-    @keyframes rise{
-      to{ transform: translateY(0); opacity:1 }
-    }
-
-    h2{
-      font-size: clamp(1.4rem, 2.6vw, 2rem);
-      margin:0 0 .6rem 0;
-      color:var(--accent);
-      text-shadow: 0 0 16px rgba(106,163,255,0.35);
-    }
-    h3{
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      margin: .4rem 0 .2rem 0;
-      color:#dbe7ff;
-    }
-
-    p{font-size:1.05rem; margin:.6rem 0; color:#eaf0ff}
-    li{font-size:1.03rem; margin:.35rem 0; color:#eaf0ff}
-    ol{padding-left:1.1rem}
-
-    .lead{
-      font-size:1.15rem;
-      color:#eaf2ff;
-    }
-
-    .divider{
-      height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      padding:clamp(1.25rem,2.2vw,1.75rem);
       margin:1.2rem 0;
+      box-shadow:0 10px 40px rgba(0,0,0,0.35),inset 0 0 60px rgba(255,255,255,0.03);
+      opacity:0;transform:translateY(10px);
+      animation:rise .8s ease forwards;
     }
-
-    a{ color:var(--accent2); text-decoration:none; }
-    a:hover{ text-decoration:underline; text-decoration-color: rgba(139,233,253,0.7); }
-
-    .footer{
-      text-align:center;
-      color:var(--muted);
-      font-size:.95rem;
-      padding: 2rem 1rem 3rem;
-    }
-
-    /* Floating glow bar under the hero */
-    .glowline{
-      position:relative; height:12px; margin:18px auto 0; max-width:320px;
-      border-radius:12px;
-      background: radial-gradient(40% 120% at 50% 50%, rgba(106,163,255,0.8), rgba(106,163,255,0.1) 60%, transparent 70%);
-      filter: blur(10px);
-      animation: pulse 3s ease-in-out infinite;
-    }
-    @keyframes pulse{
-      0%{opacity:.65} 50%{opacity:1} 100%{opacity:.65}
-    }
-
-    /* Back to top button */
-    .top{
-      position:fixed; right:14px; bottom:14px; z-index:2;
-      background: rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.2);
-      color:var(--ink);
-      padding:.6rem .8rem; border-radius:10px;
-      cursor:pointer;
-      backdrop-filter: blur(6px);
-      transition: all .2s ease;
-    }
-    .top:hover{
-      background: rgba(255,255,255,0.15);
-      box-shadow:0 0 18px rgba(106,163,255,0.35);
-    }
+    @keyframes rise{to{opacity:1;transform:translateY(0)}}
+    h2{color:var(--accent);font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 .6rem 0}
+    h3{color:#dbe7ff;font-size:clamp(1.1rem,2vw,1.3rem);margin:.4rem 0 .2rem 0}
+    p{font-size:1.05rem;margin:.6rem 0;color:#eaf0ff}
+    li{font-size:1.03rem;margin:.35rem 0;color:#eaf0ff}
+    ol{padding-left:1.1rem}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);margin:1.2rem 0}
   </style>
 </head>
+
 <body>
-  <div class="stars"></div>
-  <div class="stars2"></div>
+  <div class="stars"></div><div class="stars2"></div>
 
   <header>
     <div class="hero">
       <h1>How Generative AI Is Transforming the B2B Sales Cycle</h1>
-      <p class="tagline">A deep look at how modern sales teams use AI to move faster, personalize at scale, and build stronger relationships</p>
+      <p class="tagline">A deep exploration of how AI reshapes modern sales from prospecting to closing</p>
       <p class="byline">
-        Written by <strong>John Paleos</strong> · 
-        <a href="https://www.linkedin.com/in/john-paleos" target="_blank" rel="noopener">linkedin dot com slash in slash john dash paleos</a> · 
-        <a href="mailto:John.paleos1@gmail.com">John dot paleos1 at gmail dot com</a>
+        Written by <strong>John Paleos</strong> | 
+        <a href="https://www.linkedin.com/in/john-paleos" target="_blank" rel="noopener">LinkedIn</a> | 
+        <a href="mailto:John.Paleos1@gmail.com">John.Paleos1@gmail.com</a>
       </p>
       <div class="glowline" aria-hidden="true"></div>
     </div>
@@ -208,70 +137,132 @@
   <main>
     <section class="card">
       <h2>Introduction</h2>
-      <p class="lead">
-        B2B sales is changing fast. Buyers research on their own, and most interactions happen online. Generative AI now helps teams research, write, and personalize in minutes. The goal is simple. Less admin work, more time with customers, better outcomes.
+      <p>
+        The B2B sales world is undergoing rapid change. Buyers complete most of their research before contacting a sales representative, and a large majority of interactions now happen digitally. This shift has made the sales process more complex and data-driven. At the center of this transformation is generative artificial intelligence. Instead of replacing sales professionals, it acts as a powerful assistant that helps them understand buyers, craft better messages, and focus on relationships.
+      </p>
+      <p>
+        Generative AI refers to models that can create text, images, and predictions based on patterns in data. In sales, this means a revolution in efficiency and personalization. Sales teams can now generate proposals, emails, and insights in seconds. Analysts at McKinsey estimate that AI could add as much as one trillion dollars in value to sales and marketing activities every year by improving speed and precision.
       </p>
     </section>
 
     <section class="card">
       <h2>What Generative AI Does for Sales</h2>
       <p>
-        Generative AI uses large language models that can produce natural writing, summaries, and helpful suggestions. In a sales context, that means instant drafts for emails, call notes, or proposals. Platforms such as ChatGPT, Salesforce Einstein GPT, and HubSpot AI bring writing and analysis into the flow of work. Research from leading firms suggests material gains in productivity and revenue for teams that adopt these tools with care and review.
+        Generative AI uses large language models trained on massive datasets to produce natural language and ideas. These models recognize patterns across billions of sentences and use that knowledge to create content that feels human. For sales professionals, this changes how information is used and shared. Instead of spending hours writing emails or analyzing leads, AI tools such as ChatGPT, Salesforce Einstein GPT, and HubSpot AI generate tailored content instantly.
+      </p>
+      <p>
+        The real value lies in personalization at scale. A single representative can reach hundreds of prospects with messages that sound genuine and specific. CRM platforms are now integrating AI assistants that write follow-up notes, summarize calls, and suggest the next best action. For example, Einstein GPT inside Salesforce automatically drafts emails based on the tone and context of past conversations, while HubSpot’s AI Assistant builds custom reports and prospect lists through simple commands. These capabilities allow sales teams to spend less time on routine tasks and more on creative strategy.
+      </p>
+      <p>
+        Surveys show that companies using AI in sales report higher conversion rates and faster response times. The technology also enhances data analysis. Predictive systems forecast revenue and identify which deals are most likely to close by analyzing historical trends and customer behavior. In short, generative AI acts as a co-pilot that writes, analyzes, and guides while humans focus on building trust.
       </p>
     </section>
-
     <section class="card">
       <h2>How AI Changes the Sales Cycle</h2>
       <div class="divider"></div>
+
       <h3>Prospecting</h3>
       <p>
-        AI scans data to find accounts that match your ideal profile. It also creates first draft outreach that reads like it was written for one person. Teams report higher open rates and more replies when messages are specific and relevant.
+        Prospecting is often the hardest and most time-consuming part of sales. Generative AI makes it faster and smarter by analyzing large amounts of public and private data to identify potential buyers who match a company’s ideal customer profile. It can scan industries, company growth signals, and even news mentions to surface the best targets. 
       </p>
-      <h3>Qualifying</h3>
       <p>
-        Models score leads by learning from past wins and losses. Reps focus on high potential conversations. Assistants can ask first round questions about timing, budget, and needs, then route quality opportunities to a human.
+        Once leads are identified, AI helps personalize the first outreach. ChatGPT and similar tools can draft short, human-sounding emails that reference a prospect’s specific situation. According to recent marketing studies, personalized emails driven by AI increase open rates by about thirty percent and double response rates compared with generic messaging. AI also tracks when prospects are most likely to respond, suggesting the best time to send a message. 
       </p>
-      <h3>Pitching</h3>
+
+      <h3>Qualifying Leads</h3>
       <p>
-        AI helps assemble decks and proposals that match the buyer context. In meetings, a copilot can surface facts, case studies, and talking points. After the call, it prepares a clear summary and a follow up note so momentum continues.
+        After leads are found, qualification determines which ones deserve attention. AI platforms now rank opportunities by analyzing thousands of variables from CRM data, past deals, and engagement history. Instead of guessing which prospects will buy, sales reps can rely on predictive scores that estimate likelihood to convert. 
       </p>
-      <h3>Closing</h3>
       <p>
-        Proposals and agreements change quickly near the finish line. AI updates language, pricing, and terms without delay. It can prepare concise summaries that speak to finance, security, or operations so each stakeholder gets what they need.
+        For instance, an AI model may notice that leads from a specific industry close faster or that customers who downloaded a whitepaper last quarter are more likely to request a demo. By filtering the pipeline through these insights, reps focus on high-value conversations and spend less time chasing cold leads.
       </p>
-      <h3>Nurturing</h3>
+
+      <h3>Pitching and Presenting</h3>
       <p>
-        After the win, AI watches usage and support signals. It flags risk early and reveals healthy accounts that may be ready for expansion. Automated check ins and success notes keep relationships warm while account managers focus on strategy.
+        During presentations, generative AI functions as a creative partner. It can produce draft slides, write summaries of complex technical points, or generate custom visual explanations. When integrated into platforms like Salesforce or Microsoft Dynamics, AI copilots can display talking points or case studies in real time during a call. This ensures that salespeople always have relevant examples ready.
+      </p>
+      <p>
+        Einstein GPT, for example, uses customer context to automatically create a personalized proposal or slide deck that highlights the value most relevant to a buyer’s role. A sales manager can ask, “Show me how our product saves time for finance directors,” and the AI will assemble supporting charts and data from previous success stories. This kind of instant customization was almost impossible before.
+      </p>
+
+      <h3>Negotiating and Closing</h3>
+      <p>
+        Closing a deal often involves multiple stakeholders and fast-changing documents. Generative AI simplifies this stage by updating proposals and contracts instantly. If a client requests a new pricing option, the AI generates a revised version within seconds. Predictive pricing tools also analyze historical discount data to recommend the best offer that still protects margins.
+      </p>
+      <p>
+        These systems help prevent delays. Instead of waiting days for internal reviews, reps can produce approved language templates and share them immediately. AI can also detect tone or sentiment shifts in communications, alerting the rep if a deal seems to be stalling so they can intervene at the right time.
+      </p>
+
+      <h3>Nurturing Relationships</h3>
+      <p>
+        After the sale, maintaining the relationship is crucial. AI systems track how customers use a product, monitor support tickets, and identify potential issues before they become problems. Predictive analytics can warn a rep when usage drops or engagement declines, prompting a timely check-in. 
+      </p>
+      <p>
+        On the positive side, AI can spot upsell or cross-sell opportunities. For example, if a customer keeps asking about a feature in a higher-tier plan, the AI flags it and suggests an upgrade conversation. Automated but personalized follow-ups keep customers engaged long after closing.
       </p>
     </section>
 
     <section class="card">
-      <h2>Real World Examples</h2>
+      <h2>Real-World Examples</h2>
       <p>
-        Salesforce Einstein GPT drafts personalized outreach from CRM context and suggests next steps. HubSpot AI lets reps ask natural language questions to pull lists, create reports, and generate emails. Many reps also use ChatGPT for brainstorming lines, shaping tone, and preparing objection responses. The work is still reviewed by a person before it goes out the door.
+        <strong>Salesforce Einstein GPT</strong> was one of the first enterprise tools to combine generative AI with real-time CRM data. It automatically drafts outreach messages, meeting summaries, and proposals using a company’s tone and context. For instance, a sales representative can type a prompt such as “write a thank-you email to the operations director who attended today’s demo,” and the AI will generate a polished note including key points from the meeting record.
+      </p>
+      <p>
+        <strong>HubSpot AI and ChatSpot</strong> bring similar functionality to small and mid-sized businesses. Reps can ask plain-language questions like “show my top five leads in healthcare who haven’t been contacted this month,” and ChatSpot returns a filtered list. It can also draft emails, create blog content, and generate reports without leaving the CRM interface. This reduces the time between prospect research and outreach from hours to minutes.
+      </p>
+      <p>
+        <strong>Gong and Outreach AI</strong> use generative models to analyze recorded calls and emails. They identify the phrases and topics that lead to successful outcomes, giving reps instant feedback. The system might point out that high-performing reps mention a certain case study or handle objections in a specific way, helping the rest of the team learn those habits.
+      </p>
+      <p>
+        Finally, <strong>ChatGPT</strong> itself has become a personal assistant for thousands of salespeople. Many use it to brainstorm creative subject lines, rewrite technical explanations in simpler language, or simulate a Q and A session before an important meeting. When used with judgment and review, it increases both productivity and confidence.
       </p>
     </section>
+    <div class="divider"></div>
 
     <section class="card">
       <h2>Benefits and Challenges</h2>
       <p>
-        Benefits include time savings, stronger personalization, and better forecasting. Challenges include accuracy, bias, and the risk of losing the human touch. The best teams treat AI as a partner. They keep people in the loop for judgment and trust. They use clear review steps, and they protect customer data with strong guardrails.
+        The advantages of integrating generative AI into B2B sales are substantial. Sales organizations report shorter deal cycles, higher win rates, and more productive teams. Automating administrative work such as CRM entry and follow-up messages frees time for human connection. With AI preparing research and content, representatives can engage customers sooner and with more relevant information.
+      </p>
+      <p>
+        Personalization is another major benefit. Instead of generic outreach, AI can tailor every touchpoint to the buyer’s industry, size, and pain points. Studies show that personalized communication leads to significantly higher engagement. When this personalization is powered by AI, it scales to hundreds or thousands of prospects without adding extra workload.
+      </p>
+      <p>
+        However, challenges must be managed carefully. AI can generate inaccurate or biased information if left unchecked. Sales teams need review processes to ensure accuracy and tone. Over-automation can also make interactions feel impersonal, so balancing technology with empathy is crucial. Finally, data privacy and compliance must be protected when using customer information for AI-driven personalization.
+      </p>
+      <p>
+        Companies that combine technology with clear ethical standards and human oversight will gain the most value. The most successful teams treat AI as an intelligent partner rather than a substitute for people.
       </p>
     </section>
+
+    <div class="divider"></div>
 
     <section class="card">
       <h2>The Future of AI and Sales</h2>
       <p>
-        Sales will be a collaboration between people and AI. Copilots will summarize meetings, draft messages, and manage follow ups. People will lead with empathy, creative problem solving, and clear value. Routine tasks will be automated. Complex conversations will be more thoughtful because reps have better insight at the right time.
+        The next phase of AI in sales will center on collaboration between humans and intelligent systems. Analysts predict that every salesperson will eventually have an AI co-pilot that listens to meetings, logs notes automatically, and provides insights in real time. These assistants will suggest next steps, identify decision-makers, and even detect subtle signals of buyer hesitation.
+      </p>
+      <p>
+        The sales process itself will evolve into a blend of automation and human expertise. Routine follow-ups and scheduling can be fully automated, while complex negotiations will remain human-led. Instead of replacing jobs, AI will change skill requirements. Sales professionals will need to interpret AI recommendations, use data effectively, and focus on storytelling and empathy.
+      </p>
+      <p>
+        Organizations that invest early in training and responsible implementation will have a competitive advantage. The future of sales is not about choosing between AI or humans. It is about combining the speed and analysis of machines with the creativity and trust of people.
       </p>
     </section>
+
+    <div class="divider"></div>
 
     <section class="card">
       <h2>Conclusion</h2>
       <p>
-        Generative AI is not here to replace sales teams. It is here to raise the floor and raise the ceiling. It handles the heavy lift so people can focus on relationships and results. The winners will blend precision from AI with the human skills that buyers remember.
+        Generative AI is reshaping the structure and rhythm of B2B sales. It helps teams find the right prospects, craft more meaningful communication, and maintain relationships at scale. The technology is still new, but the potential is clear. Companies that master the human–AI partnership will create stronger customer experiences and outperform those who rely on manual methods.
+      </p>
+      <p>
+        The path forward requires both technology and humanity. When used thoughtfully, generative AI turns data into dialogue and automation into advantage. The future belongs to sales teams that combine intelligence, integrity, and innovation.
       </p>
     </section>
+
+    <div class="divider"></div>
 
     <section class="card">
       <h2>Sources</h2>
@@ -295,14 +286,13 @@
     </section>
   </main>
 
-  <div class="footer">
+  <footer class="footer">
     <p>© <span id="year"></span> John Paleos. All rights reserved.</p>
-  </div>
+  </footer>
 
   <button class="top" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Back to top">Top</button>
 
   <script>
-    // Set year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
